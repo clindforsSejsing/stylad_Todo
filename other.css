@@ -1,0 +1,127 @@
+
+body 
+{
+    margin: 0;
+    background-color: black; 
+
+}
+
+.luleaPicture
+{
+    padding: 5px;
+    background-image: url("lulea2.JPG");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 75%;
+    height: 500px;
+    
+  
+}
+
+#headLine
+{
+text-align: center;
+padding: 30px;
+flex-direction: column;
+color: mintcream;
+
+
+}
+
+#allDone
+{
+color:#fff;
+font-size: 25px;
+text-align: center;
+
+}
+
+#input1
+{
+font-size: 25px;
+border: none;
+outline: 0;
+border-radius: 5px;
+
+}
+
+#addNewButton
+{
+font-size: 25px;
+}
+
+ul
+{
+list-style-type: none;
+font-size: 30px;
+text-align: center;
+margin : 0;
+padding: 0;
+
+
+}
+
+ul li:hover 
+{
+background: #ddd;
+
+}
+  
+  ul li.checked 
+{
+background: grey;
+color: #fff;
+text-decoration: line-through;
+}
+ 
+ li
+{
+padding: 10px;
+
+}
+
+  .list
+{
+text-align: center;
+padding: 30px;
+flex-direction: column;
+color:mintcream;
+font-style: bold;
+border-radius: 5px;
+width: 40%;
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+
+  .inputBox
+{
+text-align: center;
+flex-grow: 1;
+border: none;
+outline: 0;
+
+
+}
+
+  .markText
+{
+list-style-type: none;
+font-size: 15px;
+text-align: center;
+color: whitesmoke;
+
+}
+
+footer {
+  color: orange;
+  display: bottom;
+
+}
+
+span {
+
+
+
+}
+
