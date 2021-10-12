@@ -1,0 +1,129 @@
+/* Uppgift styla todo-list. 1. Rosa bakgrund, svart text. 2. animationer.  @author: C.L.S  */
+
+body 
+{
+    margin: 0;
+    background-color: rgb(247, 158, 158); 
+    color: black;
+    font-family: 'Roboto', sans-serif;
+}
+
+#headLine
+{
+font-size: 40px;
+text-align: center;
+flex-direction: column;
+font-family: 'Scheherazade New', serif;
+}
+
+#allDone
+{
+font-size: 15px;
+text-align: center;
+flex-direction: row;
+font-family: 'Roboto', sans-serif;
+}
+
+
+#input1
+{
+font-size: 25px;
+border: rounded;
+/* outline: 0; */
+border-radius: 5px;
+border-color: blue;
+}
+
+#addNewButton
+{
+font-size: 25px;
+}
+
+ul
+{
+list-style-type: none;
+font-size: 30px;
+text-align: center;
+margin : 0;
+padding: 0;
+
+}
+
+/* ul li:hover 
+{
+background: lightyellow;
+color: black;
+} */
+  
+  ul li.checked 
+{
+
+text-decoration: line-through;
+/* animation: spinning_round 1s; */
+}
+/* animation som får raden att snurra vid markering*/
+/* @keyframes spinning_round{
+  0%{
+    transform: rotate()
+  }
+  
+  100%{
+    transform: rotate(0.5turn)
+  } */
+}
+ /* animation som ändrar färg på texten till svart*/
+ li
+{
+padding: 10px;
+color: white;
+transition: color 1s;
+}
+
+  .list
+{
+text-align: center;
+padding: 30px;
+font-style: bold;
+border-radius: 15px;
+}
+
+  .inputBox
+{
+text-align: center;
+border-color: blue;
+background-color: white;
+width: 400px;
+height: 200px; 
+
+}
+
+  /* .markText
+{
+list-style-type: none;
+font-size: 15px;
+text-align: center;
+color: whitesmoke..;
+
+} */
+
+
+
+/* animation som vid start av sidan visar hälsning.
+footer {
+  font-family: 'Akronim', cursive;
+  font-size: 40px;
+
+  animation: greetings 4s;
+
+} */
+/* @keyframes greetings {
+  0%{ 
+    transform: translate(-800px, 0)
+  }
+
+  100%{
+    transform:translate(0,0)
+  }
+
+} */
+
