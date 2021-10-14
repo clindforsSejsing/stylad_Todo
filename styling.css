@@ -1,51 +1,87 @@
-/* Uppgift styla todo-list. 1. Rosa bakgrund, svart text. 2. animationer.  @author: C.L.S  */
+/* Uppgift styla todo-list. 1. Rosa bakgrund, svart text. 2. animationer. ordnad i bokstavsordning inom reglarna.  @author: C.L.S  */
 
-body 
-{
-    margin: 0;
-    background-color: rgb(247, 158, 158); 
-
+body {
+  background-color: rgb(247, 158, 158);
+  margin: 0;
 }
 
-#headLine
-{
-font-size: 40px;
-text-align: center;
-font-family: 'Scheherazade New', serif;
-margin-bottom: 0;
+.inputBox {
+  /* box-sizing: content-box; */
+  background-color: white;
+  color: black;
+  font-family: 'Roboto', sans-serif;
+  height: auto;
+  margin: auto;
+  padding-left: 95px;
+  padding-right: 95px;
+  text-align: center;
+  width: 400px;
+  animation: introbox_dropdown 1s;
 }
 
-#allDone
-{
-font-size: 15px;
-text-align: center;
-flex-direction: row;
-font-family: 'Roboto', sans-serif;
-margin-top: 0;
-margin-bottom: 35px;
+#headLine {
+  font-family: 'Scheherazade New', serif;
+  font-size: 40px;
+  margin-bottom: 0;
+  text-align: center;
+  animation: introbox_fade 1s;
 }
 
-
-#input1
-{
-font-size: 25px;
-border: rounded;
-border-color: lightgray;
+#allDone {
+  flex-direction: row;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  margin-bottom: 35px;
+  margin-top: 0;
+  text-align: center;
+  animation: introbox_fade 1s;
 }
 
-#addNewButton
-{
-font-size: 25px;
+#input1 {
+  border: rounded;
+  border-color: lightgray;
+  font-size: 25px;
+  animation: introbox_fade 1s;
 }
 
-ul
-{
-list-style-type: none;
-font-size: 30px;
-text-align: center;
-margin : 0;
-padding: 0;
+#addNewButton {
+  font-size: 25px;
+  animation: introbox_fade 1s;
+}
 
+.list {
+  font-style: bold;
+  padding: 30px;
+  text-align: center;
+  /* border-radius: 15px; */
+}
+
+.noText {
+  color: red;
+  font-size: 15px;
+  margin: 5px;
+  padding-bottom: 0px;
+  visibility: hidden;
+}
+
+ul {
+  font-size: 30px;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+li {
+  color: black;
+  padding: 10px;
+  transition: color 1s;
+  animation: introbox_dropdown 1s;
+}
+
+ul li.checked {
+  text-decoration: line-through;
+  /* animation: spinning_round 1s; */
 }
 
 /* ul li:hover 
@@ -53,14 +89,9 @@ padding: 0;
 background: lightyellow;
 color: black;
 } */
-  
-  ul li.checked 
-{
 
-text-decoration: line-through;
-/* animation: spinning_round 1s; */
-}
 /* animation som får raden att snurra vid markering*/
+
 /* @keyframes spinning_round{
   0%{
     transform: rotate()
@@ -69,39 +100,12 @@ text-decoration: line-through;
   100%{
     transform: rotate(0.5turn)
   } */
+
 /* } */
- /* animation som ändrar färg på texten till svart*/
- li
-{
-padding: 10px;
-color: black;
-transition: color 1s;
-}
 
-  .list
-{
-text-align: center;
-padding: 30px;
-font-style: bold;
-/* border-radius: 15px; */
-}
+/* animation som ändrar färg på texten till svart*/
 
-  .inputBox
-{
-/* box-sizing: content-box; */
-text-align: center;
-background-color: white;
-width: 400px;
-height: auto; 
-margin: auto;
-padding-left: 95px;
-padding-right: 95px;
-color: black;
-font-family: 'Roboto', sans-serif;
-
-}
-
-  /* .markText
+/* .markText
 {
 list-style-type: none;
 font-size: 15px;
@@ -110,24 +114,23 @@ text-align: center;
 
 } */
 
-
-
-/* animation som vid start av sidan visar hälsning.
-footer {
-  font-family: 'Akronim', cursive;
-  font-size: 40px;
-
-  animation: greetings 4s;
-
-} */
-/* @keyframes greetings {
-  0%{ 
-    transform: translate(-800px, 0)
+@keyframes introbox_dropdown {
+  0% {
+    transform: translateY(-100px);
   }
-
-  100%{
-    transform:translate(0,0)
+  50% {
+    transform: translateY(50px);
   }
+}
 
-} */
-
+@keyframes introbox_fade {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

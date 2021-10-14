@@ -1,13 +1,14 @@
 'strict coding';
 
-//deklarerar variabler..
-
-const input = document.querySelector("input");
+//deklarerar variabler
 const button = document.querySelector("#addNewButton");
+let dlButton;
+let idCounter = 0; //counter för att ge id till rader i list.
+const input = document.querySelector("input");
 const list = document.querySelector("ul");
 let taskDone = 0;//counter för avklarade uppgifter
-let dlButton;
-let idCounter = 0; //counter för att id rader i list.
+
+
 
 //function som startar vid klick på lägg-till:
 
@@ -23,10 +24,50 @@ button.addEventListener("click", function () {
         item.id = idCounter;
         list.appendChild(item); //ny tom punkt(skapar li-element)
 
-
-        const itemLabel = document.createElement("span");//lägger till tag span, lägger till text i vårt span
+        const itemLabel = document.createElement("SPAN");//lägger till tag span, lägger till text i vårt span
         itemLabel.innerText = text;
+        itemLabel.id = idCounter;
         item.appendChild(itemLabel);
+
+        item.addEventListener('click', function (ev) {
+
+            let listItem = ev.target;
+            if (listItem.tagName === 'LI') {
+                let allDoneList = listItem.classList.toggle('checked');
+
+                if (allDoneList) {
+                    taskDone++;
+                } else {
+                    taskDone--;
+                }
+
+                document.querySelector("#allDone").innerHTML = taskDone + " " + ("completed");
+            }
+            else if (listItem.tagName === "SPAN") {
+                let itemInList = list.getElementsByTagName("LI");
+                let allDoneList;
+                for (var i = 0; i < itemInList.length; i++) {
+                    if (itemInList[i].id == listItem.id) {
+                        allDoneList = itemInList[i].classList.toggle('checked');
+                        break;
+                    }
+                }
+
+                if (allDoneList) {
+                    taskDone++;
+                } else {
+                    taskDone--;
+                }
+
+                document.querySelector("#allDone").innerHTML = taskDone + " " + ("completed");
+            }
+        });
+
+
+        // const itemLabel = document.createElement("span");//lägger till tag span, lägger till text i vårt span
+        // itemLabel.innerText = text;
+        // itemLabel.id = idCounter;
+        // item.appendChild(itemLabel);
 
 
         //delete-knapp, styling plus ger id för varje rad som skrivs. 
@@ -34,34 +75,39 @@ button.addEventListener("click", function () {
         dlButton = document.createElement("button");
         dlButton.className = "fa fa-trash";
         dlButton.style.padding = "10px";
+        dlButton.style.color = "grey";
+        dlButton.style.marginLeft = "10px";
         dlButton.id = idCounter;
 
         item.appendChild(dlButton);
+
+        // Vid klick på papperskorgen, inhämtas id för raden och den raderas. Bara en åt gången.
+        dlButton.addEventListener("click", function (ev) {
+            let button = ev.target;
+
+            let itemInList = list.getElementsByTagName("LI");
+            for (var i = 0; i < itemInList.length; i++) {
+                if (itemInList[i].id == button.id) {
+                    itemInList[i].remove();
+                    break;
+                }
+            }
+
+
+        });
 
         idCounter++;
 
     }
 
-    // Vid klick på papperskorgen, inhämtas id för raden och den raderas. Bara en åt gången.
-    dlButton.addEventListener("click", function delbtnClicked(ev) {
-        let button = ev.target;
-
-        let lis = list.getElementsByTagName("LI");
-        for (var i = 0; i < lis.length; i++) {
-            if (lis[i].id == button.id) {
-                lis[i].remove();
-                break;
-            }
-        }
 
 
-    });
+    //gör fel-meddelande synligt om fält lämnas tomt.
+    let writeSomething = document.querySelector(".noText");
 
-
-
-    //alert om inmatningen är tom. 
     if (text == "") {
-        alert("Fyll i fältet");
+        writeSomething.style.visibility = "visible";
+
     }
 
     //function som tömmer fältet efter inmatning.
@@ -72,34 +118,29 @@ button.addEventListener("click", function () {
         }
 
     }
-}
-)
-
-
-//vid klick checkar av listan, plussar på avklarade uppgifter. Drar av vid avcheckade. 
-list.addEventListener('click', function (ev) {
-    let listItem = ev.target;
-    if (listItem.tagName === 'LI') {
-        let allDoneList = listItem.classList.toggle('checked');
-
-        if (allDoneList) {
-            taskDone++;
-        } else {
-            taskDone--;
-        }
-
-        document.querySelector("#allDone").innerHTML = taskDone + " " + "completed";
-
-    }
-
-}, false);
 
 
 
 
+    //vid klick checkar av listan, plussar på avklarade uppgifter. Drar av vid avcheckade. 
+    // list.addEventListener('click', function (ev) {
+
+    //     let listItem = ev.target;
+    //     if (listItem.tagName === 'LI') {
+    //         let allDoneList = listItem.classList.toggle('checked');
+
+    //         if (allDoneList) {
+    //             taskDone++;
+    //         } else {
+    //             taskDone--;
+    //         }
+
+    //         document.querySelector("#allDone").innerHTML = taskDone + " " + ("completed");
+
+    //     }
 
 
 
-
-
-
+    // },
+    //     false);
+})
