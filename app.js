@@ -18,6 +18,7 @@ button.addEventListener("click", function () {
     const text = input.value;
 
 
+
     //lägg till text i (ul), skapar element. Felkontroll- lägger ej in tomma li:
     if (text != "") {
         let item = document.createElement("LI");
@@ -29,13 +30,13 @@ button.addEventListener("click", function () {
         itemLabel.id = idCounter;
         item.appendChild(itemLabel);
 
-        item.addEventListener('click', function (ev) {
+        item.addEventListener('click', function (ev) { //function som hittar och stryker över element vid klick 
 
             let listItem = ev.target;
             if (listItem.tagName === 'LI') {
                 let allDoneList = listItem.classList.toggle('checked');
 
-                if (allDoneList) {
+                if (allDoneList) { //plussar på eller drar av i completed-listan.
                     taskDone++;
                 } else {
                     taskDone--;
@@ -43,7 +44,7 @@ button.addEventListener("click", function () {
 
                 document.querySelector("#allDone").innerHTML = taskDone + " " + ("completed");
             }
-            else if (listItem.tagName === "SPAN") {
+            else if (listItem.tagName === "SPAN") { //om man klickar på span (texten i element li), stryks den/avbockas vid klick
                 let itemInList = list.getElementsByTagName("LI");
                 let allDoneList;
                 for (var i = 0; i < itemInList.length; i++) {
@@ -53,7 +54,7 @@ button.addEventListener("click", function () {
                     }
                 }
 
-                if (allDoneList) {
+                if (allDoneList) { //plussar på eller drar av i completed-listan.
                     taskDone++;
                 } else {
                     taskDone--;
@@ -69,8 +70,11 @@ button.addEventListener("click", function () {
         dlButton = document.createElement("button");
         dlButton.className = "fa fa-trash";
         dlButton.style.padding = "10px";
-        dlButton.style.color = "grey";
+        dlButton.style.color = "lightgrey";
+        dlButton.style.backgroundColor = "white";
+        dlButton.style.border = "none";
         dlButton.style.marginLeft = "10px";
+        dlButton.style.fontSize = "20px";
         dlButton.id = idCounter;
 
         item.appendChild(dlButton);
@@ -92,18 +96,20 @@ button.addEventListener("click", function () {
 
         idCounter++;
 
+
     }
 
-
-
-    //gör fel-meddelande synligt om fält lämnas tomt.
+    //gör fel-meddelande synligt om fält lämnas tomt. 
     let writeSomething = document.querySelector(".noText");
 
     if (text == "") {
+
         writeSomething.style.visibility = "visible";
-        writeSomething.animate = "noText_blinking";
+        writeSomething.style.animation = "noText_blinking 1s 3";
+
     } else {
         writeSomething.style.visibility = "hidden";
+
     }
 
 
@@ -113,31 +119,5 @@ button.addEventListener("click", function () {
         if (input.value !== "") {
             input.value = "";
         }
-
     }
-
-
-
-
-    //vid klick checkar av listan, plussar på avklarade uppgifter. Drar av vid avcheckade. 
-    // list.addEventListener('click', function (ev) {
-
-    //     let listItem = ev.target;
-    //     if (listItem.tagName === 'LI') {
-    //         let allDoneList = listItem.classList.toggle('checked');
-
-    //         if (allDoneList) {
-    //             taskDone++;
-    //         } else {
-    //             taskDone--;
-    //         }
-
-    //         document.querySelector("#allDone").innerHTML = taskDone + " " + ("completed");
-
-    //     }
-
-
-
-    // },
-    //     false);
 })

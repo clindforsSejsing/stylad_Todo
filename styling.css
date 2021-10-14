@@ -1,4 +1,7 @@
-/* Uppgift styla todo-list. 1. Rosa bakgrund, svart text. 2. animationer. ordnad i bokstavsordning inom reglarna.  @author: C.L.S  */
+/* Uppgift: Styla todo-list. Lernia. systemutvecklare inom JavaScript och Java. 2021-10-14. Termin 1, Introduktion till HTML och CSS. 
+1. Rosa bakgrund, svart text. 
+2. Animationer. Intro-text Fade:ar in och gör entre uppifrån. Nya element i listan- fade:ar in och glider uppåt.Klick på punkt- övergår till gråfärg på texten. Felmeddelande vid tomt fält- blinkar rött.
+3.Ordnad i bokstavsordning inom reglarna, selectorerna i ordning som de kommer på webbsidan. @author: C.L.S.  */
 
 body {
   background-color: rgb(247, 158, 158);
@@ -6,7 +9,6 @@ body {
 }
 
 .inputBox {
-  /* box-sizing: content-box; */
   background-color: white;
   color: black;
   font-family: 'Roboto', sans-serif;
@@ -40,8 +42,15 @@ body {
 #input1 {
   border: rounded;
   border-color: lightgray;
+  border-width: 1px;
   font-size: 25px;
   animation: introbox_fade 1s;
+}
+
+#input1:focus {
+  border-color: blue;
+  box-shadow: 0 0 5px blue;
+  outline: none;
 }
 
 #addNewButton {
@@ -50,24 +59,26 @@ body {
 }
 
 .list {
-  font-style: bold;
+  margin-top: 0px;
   padding: 30px;
+  padding-bottom: 10px;
+  padding-top: 0px;
   text-align: center;
 }
 
 .noText {
   color: red;
-  font-size: 10px;
-  margin: 5px;
+  font-size: 15px;
+  font-style: italic;
+  margin: 3px;
+  margin-bottom: 0;
   padding-bottom: 0px;
   visibility: hidden;
-  animation: noText_blinking 1s 3;
 }
 
 ul {
   font-size: 30px;
   list-style-type: none;
-  margin: 0;
   padding: 0;
   text-align: center;
 }
@@ -75,11 +86,12 @@ ul {
 li {
   color: black;
   padding: 10px;
-  transition: color 1s;
-  animation: introbox_dropdown 1s;
+  transition: color 0, 5s;
+  animation: introbox_dropdown 200ms;
 }
 
 ul li.checked {
+  color: gray;
   text-decoration: line-through;
 }
 
@@ -113,5 +125,14 @@ ul li.checked {
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes li_itemFadeIn {
+  0% {
+    transform: translateY (-100px);
+  }
+  50% {
+    transform: translateY (50px);
   }
 }
