@@ -53,15 +53,15 @@ body {
   font-style: bold;
   padding: 30px;
   text-align: center;
-  /* border-radius: 15px; */
 }
 
 .noText {
   color: red;
-  font-size: 15px;
+  font-size: 10px;
   margin: 5px;
   padding-bottom: 0px;
   visibility: hidden;
+  animation: noText_blinking 1s 3;
 }
 
 ul {
@@ -81,38 +81,19 @@ li {
 
 ul li.checked {
   text-decoration: line-through;
-  /* animation: spinning_round 1s; */
 }
 
-/* ul li:hover 
-{
-background: lightyellow;
-color: black;
-} */
-
-/* animation som får raden att snurra vid markering*/
-
-/* @keyframes spinning_round{
-  0%{
-    transform: rotate()
+@keyframes noText_blinking {
+  0% {
+    opacity: 0;
   }
-  
-  100%{
-    transform: rotate(0.5turn)
-  } */
-
-/* } */
-
-/* animation som ändrar färg på texten till svart*/
-
-/* .markText
-{
-list-style-type: none;
-font-size: 15px;
-text-align: center;
-
-
-} */
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
 
 @keyframes introbox_dropdown {
   0% {

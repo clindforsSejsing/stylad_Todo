@@ -64,12 +64,6 @@ button.addEventListener("click", function () {
         });
 
 
-        // const itemLabel = document.createElement("span");//lägger till tag span, lägger till text i vårt span
-        // itemLabel.innerText = text;
-        // itemLabel.id = idCounter;
-        // item.appendChild(itemLabel);
-
-
         //delete-knapp, styling plus ger id för varje rad som skrivs. 
 
         dlButton = document.createElement("button");
@@ -107,8 +101,11 @@ button.addEventListener("click", function () {
 
     if (text == "") {
         writeSomething.style.visibility = "visible";
-
+        writeSomething.animate = "noText_blinking";
+    } else {
+        writeSomething.style.visibility = "hidden";
     }
+
 
     //function som tömmer fältet efter inmatning.
     clearThis();
