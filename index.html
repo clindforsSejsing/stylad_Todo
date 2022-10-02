@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!--metatag för att göra webbsidan kompatibel med olika enheter, den anpassar sig i strlk-->
     <title>Stylad Todo. C.L.S</title>
     <link rel="stylesheet" href="styling.css">
-    <!-- inhämtar font + figurer att använda-->
-
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,28 +13,21 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Scheherazade+New:wght@700&display=swap" rel="stylesheet">
-
 </head>
-
 <body>
     <div class="inputBox">
         <h1 id="headLine">My ToDo</h1>
         <!--Räknare för avklarade uppgifter..-->
         <p id="allDone"> 0 completed</p>
         <!--Inmatningsfält+knapp-->
-
-
         <label for="input1"></label><input type="text" id="input1" name="input1">
         <button id="addNewButton" type="click" title="button">OK</i></button>
         <!-- listan med Ul och Li-->
         <p class="noText">Input must not be empty!</p>
         <div class="list">
             <ul></ul>
-
         </div>
     </div>
-
     <script src="app.js"></script>
 </body>
-
 </html>
